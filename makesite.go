@@ -22,6 +22,35 @@ func readFile(name string) string {
 	return string(fileContents)
 }
 
+func createHTML(filename string) {
+	data := readFile(filename)
+	content := content{Text: data}
+	temp := template.Must(template.New("template.tmpl").ParseFiles("template.tmpl"))
+
+	var err error
+	err = temp.Execute(os.Stdout, content)
+
+	if err != nil {
+		panic(err)
+	}
+
+	inputName := strings.Split(filename, ".")
+	newName := inputName[0] + ".html"
+
+	file, err := os.Create(newName)
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = temp.Execute(file, content)
+
+	if err != nil {
+		panic(err)
+	}
+
+}
+
 func createFileFromTemp(filename string) {
 
 	inputFile := flag.String("file", "", "what file are you trying to convert?")
@@ -29,32 +58,11 @@ func createFileFromTemp(filename string) {
 	flag.Parse()
 
 	if *inputFile != "" {
-		data := readFile(*inputFile)
-		content := content{Text: data}
-		temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
-		var err error
-		err = temp.Execute(os.Stdout, content)
+		createHTML(*inputFile)
 
-		if err != nil {
-			panic(err)
-		}
-
-		inputName := strings.Split(*inputFile, ".")
-		newName := inputName[0] + ".html"
-
-		file, err := os.Create(newName)
-
-		if err != nil {
-			panic(err)
-		}
-
-		err = temp.Execute(file, content)
-
-		if err != nil {
-			panic(err)
-		}
 	} else if *inputDir != "" {
+
 		files, err := ioutil.ReadDir(*inputDir)
 
 		if err != nil {
@@ -63,31 +71,7 @@ func createFileFromTemp(filename string) {
 
 		for _, file := range files {
 			if strings.Contains(file.Name(), ".txt") {
-				data := readFile(file.Name())
-				content := content{Text: data}
-				temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
-
-				var err error
-				err = temp.Execute(os.Stdout, content)
-
-				if err != nil {
-					panic(err)
-				}
-
-				inputName := strings.Split(file.Name(), ".")
-				newName := inputName[0] + ".html"
-
-				file, err := os.Create(newName)
-
-				if err != nil {
-					panic(err)
-				}
-
-				err = temp.Execute(file, content)
-
-				if err != nil {
-					panic(err)
-				}
+				createHTML(file.Name())
 			}
 		}
 	} else {
