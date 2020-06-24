@@ -1,9 +1,11 @@
 package main
 
 import (
+	"flag"
 	"html/template"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 type content struct {
@@ -19,7 +21,12 @@ func readFile(name string) string {
 	return string(fileContents)
 }
 
-func createFileFromTemp(filename string, data string) {
+func createFileFromTemp(filename string) {
+
+	input := flag.String("file", "first-post.txt", "what file are you trying to convert?")
+	flag.Parse()
+
+	data := readFile(*input)
 	content := content{Text: data}
 	temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
@@ -30,7 +37,10 @@ func createFileFromTemp(filename string, data string) {
 		panic(err)
 	}
 
-	file, err := os.Create("first-post.html")
+	inputName := strings.Split(*input, ".")
+	newName := inputName[0] + ".html"
+
+	file, err := os.Create(newName)
 
 	if err != nil {
 		panic(err)
@@ -44,5 +54,5 @@ func createFileFromTemp(filename string, data string) {
 }
 
 func main() {
-	createFileFromTemp("template.tmpl", readFile("first-post.txt"))
+	createFileFromTemp("template.tmpl")
 }
