@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"os"
@@ -23,33 +24,74 @@ func readFile(name string) string {
 
 func createFileFromTemp(filename string) {
 
-	input := flag.String("file", "first-post.txt", "what file are you trying to convert?")
+	inputFile := flag.String("file", "", "what file are you trying to convert?")
+	inputDir := flag.String("dir", "", "In what directory are your text files?")
 	flag.Parse()
 
-	data := readFile(*input)
-	content := content{Text: data}
-	temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
+	if *inputFile != "" {
+		data := readFile(*inputFile)
+		content := content{Text: data}
+		temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
-	var err error
-	err = temp.Execute(os.Stdout, content)
+		var err error
+		err = temp.Execute(os.Stdout, content)
 
-	if err != nil {
-		panic(err)
-	}
+		if err != nil {
+			panic(err)
+		}
 
-	inputName := strings.Split(*input, ".")
-	newName := inputName[0] + ".html"
+		inputName := strings.Split(*inputFile, ".")
+		newName := inputName[0] + ".html"
 
-	file, err := os.Create(newName)
+		file, err := os.Create(newName)
 
-	if err != nil {
-		panic(err)
-	}
+		if err != nil {
+			panic(err)
+		}
 
-	err = temp.Execute(file, content)
+		err = temp.Execute(file, content)
 
-	if err != nil {
-		panic(err)
+		if err != nil {
+			panic(err)
+		}
+	} else if *inputDir != "" {
+		files, err := ioutil.ReadDir(*inputDir)
+
+		if err != nil {
+			panic(err)
+		}
+
+		for _, file := range files {
+			if strings.Contains(file.Name(), ".txt") {
+				data := readFile(file.Name())
+				content := content{Text: data}
+				temp := template.Must(template.New("template.tmpl").ParseFiles(filename))
+
+				var err error
+				err = temp.Execute(os.Stdout, content)
+
+				if err != nil {
+					panic(err)
+				}
+
+				inputName := strings.Split(file.Name(), ".")
+				newName := inputName[0] + ".html"
+
+				file, err := os.Create(newName)
+
+				if err != nil {
+					panic(err)
+				}
+
+				err = temp.Execute(file, content)
+
+				if err != nil {
+					panic(err)
+				}
+			}
+		}
+	} else {
+		fmt.Println("You must specify a file or directory using the --file or --dir flags")
 	}
 }
 
