@@ -73,7 +73,7 @@ func runCommands(filename string, message string, branch string) {
 }
 
 func main() {
-	inputFile := flag.String("file", "git.txt", "what file has the commands you want to run?")
+	inputFile := flag.String("file", "", "what file has the commands you want to run?")
 	inputMsg := flag.String("msg", "commit made", "do you have a message for your commit?")
 	inputBranch := flag.String("branch", "master", "what branch are you committing to?")
 	flag.Parse()
