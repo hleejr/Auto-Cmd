@@ -39,6 +39,11 @@ Once you have the utility installed it can be used by running the following comm
 go build
 ./autocmd --file --msg --branch
 ```
+Alternatively you can download the utility to be used anywhere on your system and not just in one specific directory:
+```
+go install
+autocmd --file --msg --branch
+```
 - The **file** flag is used to determine which ".txt" file is used to pull the desired commands
 - The **msg** flag is used to pass a message along with the git commit command
 - The **branch** flag is used to determine which branch of the repository you want to push your commit to
