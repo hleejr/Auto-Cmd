@@ -69,7 +69,6 @@ func runCommands(filename string, message string, branch string) {
 
 		fmt.Println("ran command", strconv.Quote(strings.Join(command.Args, " ")))
 	}
-
 }
 
 func main() {
