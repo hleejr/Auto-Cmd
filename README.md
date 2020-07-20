@@ -33,4 +33,4 @@ $ git remote rm origin
 Then add the link to your repository as the new origin
 
 ## Utility Usage
-When you have multiple shell commands needed for various setups, AutoCmd makes use of textfiles to run multiple commands with just one shell entry. The one example I included is a text file for git commands to create a git commit. However, by creating a new ".txt" file and adding the desired demands, with newlines after each entry, any combination of shell commands should be compatible.
+When you have multiple shell commands needed for various setups, AutoCmd makes use of text files to run multiple commands with just one shell entry. The one example I included is a text file for git commands to create a git commit. However, by creating a new ".txt" file and adding the desired demands, with newlines after each entry, any combination of shell commands should be compatible.
