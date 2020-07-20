@@ -77,4 +77,5 @@ func main() {
 	flag.Parse()
 
 	runCommands(*inputFile, *inputMsg, *inputBranch)
+
 }
