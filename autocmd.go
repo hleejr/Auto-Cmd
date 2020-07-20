@@ -46,10 +46,10 @@ func runCommands(filename string, message string, branch string) {
 
 	for _, cmd := range cmds {
 		cmdArray := strings.Fields(cmd)
-		gitExec, _ := exec.LookPath(cmdArray[0])
+		getExec, _ := exec.LookPath(cmdArray[0])
 
 		command := &exec.Cmd{
-			Path:   gitExec,
+			Path:   getExec,
 			Args:   cmdArray,
 			Stdout: os.Stdout,
 			Stderr: os.Stdout,
