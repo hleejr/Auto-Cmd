@@ -70,7 +70,7 @@ func runCommands(filename string) {
 			panic(err)
 		}
 
-		fmt.Println("ran command %s", strconv.Quote(strings.Join(command.Args, " ")))
+		fmt.Println("ran command", strconv.Quote(strings.Join(command.Args, " ")))
 	}
 
 }
