@@ -76,6 +76,6 @@ func runCommands(filename string) {
 }
 
 func main() {
-
-	runCommands("gitCommands.txt")
+	inputFile := flag.String("file", "git.txt", "what file has the commands you want to run?")
+	runCommands(*inputFile)
 }
