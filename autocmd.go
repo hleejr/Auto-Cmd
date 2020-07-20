@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
-	"strconv"
 	"strings"
 )
 
@@ -67,7 +66,7 @@ func runCommands(filename string, message string, branch string) {
 			panic(err)
 		}
 
-		fmt.Println("ran command", strconv.Quote(strings.Join(command.Args, " ")))
+		fmt.Println("ran command", strings.Join(command.Args, " "))
 	}
 }
 
