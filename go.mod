@@ -1,4 +1,4 @@
-module makesite
+module autocmd
 
 go 1.13
 
