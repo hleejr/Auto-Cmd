@@ -1,6 +1,6 @@
 # 🔗 AutoCmd
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/hleejr/makesite)](https://goreportcard.com/report/github.com/hleejr/makesite)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hleejr/Auto-Cmd)](https://goreportcard.com/report/github.com/hleejr/Auto-Cmd)
 
 *[AutoCmd Details & Demo](https://docs.google.com/presentation/d/1w7uBAsoznALcbNteGXf-v_b4sSUu6_At69wOEWYC7Yg/edit?usp=sharing)*
 
