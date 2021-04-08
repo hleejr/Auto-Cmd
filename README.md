@@ -1,4 +1,32 @@
-# 🔗 AutoCmd
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/hleejr/Auto-Cmd">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Auto Command</h3>
+
+  <p align="center">
+    Golang CLI which makes use of text files to run multiple commands within the terminal at once
+    <br />
+    <a href="https://github.com/hleejr/Auto-Cmd"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/hleejr/Auto-Cmd">View Demo</a>
+    ·
+    <a href="https://github.com/hleejr/Auto-Cmd/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/hleejr/Auto-Cmd/issues">Request Feature</a>
+  </p>
+</p>
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/hleejr/Auto-Cmd)](https://goreportcard.com/report/github.com/hleejr/Auto-Cmd)
 
@@ -13,7 +41,8 @@
 ## Project Structure
 
 ```bash
-📂 Autocmd
+📂 Auto-Cmd
+├── 📂 images
 ├── README.md
 ├── autocmd.go
 ├── git.txt
@@ -50,3 +79,18 @@ autocmd --file --msg --branch
 
 
 As these flags may not be needed and other flags may be useful depending on the particular commands being used, the flags within program can easily be altered to best suite your purposes.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/hleejr/Auto-Cmd.svg?style=for-the-badge
+[contributors-url]: https://github.com/hleejr/Auto-Cmd/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/hleejr/Auto-Cmd.svg?style=for-the-badge
+[forks-url]: https://github.com/hleejr/Auto-Cmd/network/members
+[stars-shield]: https://img.shields.io/github/stars/hleejr/Auto-Cmd.svg?style=for-the-badge
+[stars-url]: https://github.com/hleejr/Auto-Cmd/stargazers
+[issues-shield]: https://img.shields.io/github/issues/hleejr/Auto-Cmd.svg?style=for-the-badge
+[issues-url]: https://github.com/hleejr/Auto-Cmd/issues
+[license-shield]: https://img.shields.io/github/license/hleejr/Auto-Cmd.svg?style=for-the-badge
+[license-url]: https://github.com/hleejr/Auto-Cmd/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/henry-bowe-jr-31498916a/
