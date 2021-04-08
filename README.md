@@ -20,7 +20,7 @@
     <a href="https://github.com/hleejr/Auto-Cmd"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/hleejr/Auto-Cmd">View Demo</a>
+    <a href="https://docs.google.com/presentation/d/1w7uBAsoznALcbNteGXf-v_b4sSUu6_At69wOEWYC7Yg/edit?usp=sharing">View Demo</a>
     ·
     <a href="https://github.com/hleejr/Auto-Cmd/issues">Report Bug</a>
     ·
