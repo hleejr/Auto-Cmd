@@ -55,7 +55,7 @@
 Run each command line-by-line in your terminal to set up the utility:
 ```
 $ git clone https://github.com/hleejr/Auto-Cmd.git
-$ cd makesite
+$ cd Auto-Cmd
 $ git remote rm origin
 ```
 Then add the link to your repository as the new origin
